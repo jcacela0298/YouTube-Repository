@@ -1,19 +1,19 @@
+### APXC FILE 
 
-APXC file: 
-
+```
 public class MyOpportunityListController1 {
 @AuraEnabled
 public static List<Opportunity> getOpportunities(Id recordId) {
    return [SELECT Id, Name, Amount, CloseDate FROM Opportunity WHERE AccountId = :recordId];
 }
 }
+```
 
 
 
+### CMP FILE
 
-
-CMP file:
-
+```
 <aura:component controller="MyOpportunityListController1" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     <aura:attribute name="recordId" type="Id" />
     <aura:attribute name="Account" type="Account" />
@@ -31,13 +31,13 @@ CMP file:
     </lightning:card>
 	
 </aura:component>
+```
 
 
 
+### JS FILE
 
-
-JS file:
-
+```
 ({
 	myAction : function(component, event, helper) {
         component.set("v.Columns", [
@@ -55,3 +55,4 @@ action.setCallback(this, function(data) {
 $A.enqueueAction(action);		
 	}
 })
+```
