@@ -1,0 +1,26 @@
+### APXT FILE 
+
+```
+trigger ContactMailingCity on Contact (before insert) {
+    If(Trigger.isBefore){
+        If(Trigger.isInsert){
+            ContactInsertTriggerHandler1.triggerHandler(Trigger.new);
+        }
+    }
+}
+```
+
+
+### APXC FILE 
+
+```
+public class ContactInsertTriggerHandler1 {    
+    public static void triggerHandler(List<Contact> contacts){
+        for(Contact con: contacts){
+            con.MailingCity = 'Sydney';
+            System.debug ('Contacts Mailing City has been updated to Sydney.');
+        }
+    }
+}
+```
+
