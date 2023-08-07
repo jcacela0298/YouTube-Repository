@@ -1,0 +1,30 @@
+META FILE	
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+<apiVersion>57.0</apiVersion>
+<isExposed>true</isExposed>
+  <targets> 
+    <target>lightning__FlowScreen</target> 
+  </targets>
+</LightningComponentBundle>
+
+
+ JS FILE
+
+
+import { LightningElement } from 'lwc';
+export default class LwcFlowExample1 extends LightningElement {}
+
+
+ HTML FILE
+
+
+<template>
+  <iframe src="/apex/InvoicePDF" 
+    height="900px"
+    width="100%"> 
+  </iframe> 
+</template>
+
